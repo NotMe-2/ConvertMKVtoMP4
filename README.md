@@ -14,25 +14,25 @@ Put all the MKV files you want to be converted to MP4 into the folder
 This script is set to run using an Nvidia graphics card.
 To use your CPU (Slower) use this function instead:
 
-def convert_to_mp4(input_path, output_path):
-    try:
-        input_filename = os.path.basename(input_path)
-        output_filename = os.path.splitext(input_filename)[0] + ".mp4"
-        output_file_path = os.path.join(output_path, output_filename)
-
-        cmd = [
-            "ffmpeg",
-            "-i", input_path,
-            "-c:v", "libx264",
-            "-c:a", "aac",
-            output_file_path
-        ]
-
-        subprocess.run(cmd, check=True)
-
-        print("Conversion successful. Output file:", output_file_path)
-    except Exception as e:
-        print("Error during conversion:", str(e))
+    def convert_to_mp4(input_path, output_path):
+        try:
+            input_filename = os.path.basename(input_path)
+            output_filename = os.path.splitext(input_filename)[0] + ".mp4"
+            output_file_path = os.path.join(output_path, output_filename)
+    
+            cmd = [
+                "ffmpeg",
+                "-i", input_path,
+                "-c:v", "libx264",
+                "-c:a", "aac",
+                output_file_path
+            ]
+    
+            subprocess.run(cmd, check=True)
+    
+            print("Conversion successful. Output file:", output_file_path)
+        except Exception as e:
+            print("Error during conversion:", str(e))
 
 
 
